@@ -1,14 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Dosis', sans-serif;
+}
+
 .first-class {
-  background: purple;
+  background: #ffc107;
+  width: 10%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 0;
+  text-align: center;
+  margin-left: 32%;
 }
 
 .economic-class {
-  background: yellow;
+  background: #b4fce4;
+  width: 10%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 0;
+  text-align: center;
+  margin-left: 32%;
+}
+
+.ocupado-class {
+  background: rgb(184, 183, 183);
+  width: 10%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 0;
+  text-align: center;
+  margin-left: 32%;
 }
 
 .seats {
   display: inline-block;
-  width: 200px;
+  width: 100px;
   height: 100px;
   border: 1px solid black;
+  margin-left: 2px;
+  border-radius: 10px;
+}
+
+#seats {
+  margin-left: 12%;
+}
+
+hr {
+  margin: 20px 0;
+  border: .5px solid black;
+}
+
+h1 {
+  margin-left: 43%;
+  margin-bottom: 0;
+  font-size: 40px;
+}
+
+.tags {
+  margin-left: 35%;
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 30px;
+}
+
+h2 {
+  margin: 15px 38%;
+  font-size: 30px;
+}
+
+#btn {
+  border-style: none;
+  border: 2px solid black;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 1% 43%;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+}
+
+#btn:hover {
+  background: rgb(209, 207, 207);
+  cursor: pointer; 
+}
+
+.ticket {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 28%;
+  margin: 1% 33%;
+  text-align: center;
+}
+
+img {
+  width: 15%;
+  margin-top: -9%;
+  position: absolute;
+  margin-left: 52%;
 }

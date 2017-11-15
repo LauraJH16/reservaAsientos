@@ -1,8 +1,5 @@
-//declarar un array que representará los asientos de nuestro avión con false indicando que estos están vacíos
-//ocupado = true
 var airlineSeats = [false, false, false, false, false, false, false, false, false, false];
 
-//contador que nos ayudará a rastrear el número de asientos ocupados
 var busySeats = 0;
 var paintSeats = function (array) {
   var containerSeats = document.getElementById('seats');
@@ -11,11 +8,10 @@ var paintSeats = function (array) {
     var seat = document.createElement('div');
     seat.className = 'seats';
 
-    //del primer elemento al cuarto, en nuestro arreglo va a ser Primera Clase, que sería del índice cero al índice tres
     if (i < 4) {
-      seat.style.background = 'purple';
+      seat.style.background = '#ffc107';
     } else {
-      seat.style.background = 'yellow';
+      seat.style.background = '#b4fce4';
     }
     containerSeats.appendChild(seat);
   }
@@ -26,7 +22,7 @@ var reserve = function () {
   btn.addEventListener('click', chooseZone);
 };
 var chooseZone = function () {
-  var choice = prompt('En qué zona prefiere reservar \n 1. Primera Clase \n 2. Económica \n \n Por favor, ingresa el número de tu preferencia.');
+  var choice = prompt('En qué clase quiere reservar \n 1. Primera Clase \n 2. Económica \n \n Por favor, ingresa el número de tu preferencia.');
   if (choice == 1) {
     checkFirstClassZone();
   } else if (choice == 2) {
@@ -38,15 +34,12 @@ var chooseZone = function () {
 
 var checkFirstClassZone = function () {
   var zone = 'Primera Clase';
-  //recorre del elemento 0 al elemento 3 y verifica cuáles están idsponibles
   for (var index = 0; index < 4; index++) {
     if (airlineSeats[index] == false) {
       airlineSeats[index] = true;
       reserveSeat(index);
       paintTicket(index, zone);
       busySeats++;
-      //al reservar un asiento, no necesitamos seguir recorriendo nuestro arreglo
-      //rompemos el for con break
       break;
     } else if (index == 3 && airlineSeats[index] == true) {
       reasignEconomicZone(zone);
@@ -71,7 +64,7 @@ var checkEconomicZone = function () {
 
 var reserveSeat = function (indexToPaint) {
   var seat = document.getElementsByClassName('seats');
-  seat[indexToPaint].textContent = 'Ocupado';
+  seat[indexToPaint].style.background = 'rgb(184, 183, 183)';
 };
 
 var reasignEconomicZone = function (zone) {
@@ -103,15 +96,19 @@ var reasignFirstClassZone = function (zone) {
 };
 
 var paintTicket = function (index, zone) {
-  var containerTickets = document.getElementById('tickets');
+  var containerTickets = document.getElementById('ticket');
   var ticket = document.createElement('div');
-  ticket.className = 'seats';
+  ticket.className = 'ticket';
   var title = document.createElement('p');
   var reservedSeating = document.createElement('p');
   var zoneClass = document.createElement('p');
   title.textContent = 'PASE DE ABORDAR';
-  reservedSeating.textContent = 'No. de asiento ' + (index + 1);
-  zoneClass.textContent = zone;
+  title.style.fontWeight = '600';
+  title.style.fontSize = '25px';
+  reservedSeating.textContent = 'No. de asiento: ' + (index + 1);
+  reservedSeating.style.fontSize = '20px';
+  zoneClass.textContent = 'Clase: ' + zone;
+  zoneClass.style.fontSize = '20px';
   ticket.appendChild(title);
   ticket.appendChild(reservedSeating);
   ticket.appendChild(zoneClass);
@@ -119,7 +116,7 @@ var paintTicket = function (index, zone) {
 }
 
 var nextFlight = function () {
-  alert('¡Nuestro próximo vuelo sale dentro de 3 horas!');
+  alert('¡Nuestro próximo vuelo sale dentro de 3 horas!... Gracias');
 };
 
 var noSeats = function () {
